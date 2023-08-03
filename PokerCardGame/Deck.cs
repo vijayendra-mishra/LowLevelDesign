@@ -7,7 +7,7 @@
         public Deck()
         {
             cards.Push(new Card());
-            cards.Push(new Card());
+            cards.Push(new Card()); // two jokers
         }
 
 
