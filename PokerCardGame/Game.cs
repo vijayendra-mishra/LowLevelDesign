@@ -29,7 +29,7 @@ namespace CardDeck
 
                 Console.WriteLine($"Remaining Cards in Deck : {d.cards.Count}{Environment.NewLine}");
 
-                Console.WriteLine($"Enter no of Players, no of Cards :");
+                Console.WriteLine($"Enter no of Players and no of Cards :");
                 newGame.DealCards(d, Convert.ToInt32(Console.ReadLine()), Convert.ToInt32(Console.ReadLine()));
                 newGame.DisplayPlayerCards();
 
@@ -70,16 +70,16 @@ namespace CardDeck
             return winnerId;
         }
 
-        public void DealCards(Deck _d, int _nop, int _noc)
+        public void DealCards(Deck d, int nop, int noc)
         {
-            Console.WriteLine($"Dealing Cards to {_noc} Players!{Environment.NewLine}");
+            Console.WriteLine($"Dealing Cards to { noc} Players!{Environment.NewLine}");
 
-            Noc = _noc;
+            Noc = noc;
 
-            for (int i = 1; i <= _nop; ++i)
+            for (int i = 1; i <= nop; ++i)
             {
                 Players.Add(new Player(i));
-                Players[i - 1].CardsDealt = _d.PopCards(_noc);
+                Players[i - 1].CardsDealt = d.PopCards( noc);
             }
 
         }
@@ -90,13 +90,13 @@ namespace CardDeck
             foreach (var p in Players) { Console.WriteLine(p.ToString()); }
         }
 
-        public void DealCardsAgain(Deck _d)
+        public void DealCardsAgain(Deck d)
         {
             Console.WriteLine($"Dealing Cards Again!{Environment.NewLine}");
 
             foreach (var p in Players)
             {
-                p.CardsDealt.AddRange(_d.PopCards(Noc));
+                p.CardsDealt.AddRange( d.PopCards(Noc));
             }
 
         }

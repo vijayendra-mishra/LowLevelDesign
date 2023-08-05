@@ -3,9 +3,9 @@
     public int Id { get; set; }
     public List<Card> CardsDealt = new();
 
-    public Player(int _id)
+    public Player(int id)
     {
-        Id = _id;
+        Id = id;
     }
 
     public override string ToString()

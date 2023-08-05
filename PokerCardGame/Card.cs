@@ -12,29 +12,18 @@
         Points = 0;
     }
 
-    public Card(int _points, string _suit)
+    public Card(int points, string suit)
     {
-        Points = _points;
-        Suit = _suit;
-        switch (_points)
+        Points = points;
+        Suit = suit;
+        Value = points switch
         {
-            case 1:
-                Value = "A";
-                break;
-            case 11:
-                Value = "J";
-                break;
-            case 12:
-                Value = "Q";
-                break;
-            case 13:
-                Value = "K";
-                break;
-            default:
-                Value = _points.ToString();
-                break;
-        }
-
+            1 => "A",
+            11 => "J",
+            12 => "Q",
+            13 => "K",
+             _=> points.ToString(),
+        };
     }
 
     public override string ToString()
